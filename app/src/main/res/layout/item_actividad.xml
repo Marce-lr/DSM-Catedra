@@ -4,46 +4,64 @@
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:layout_margin="8dp"
-	app:cardElevation="2dp">
+	app:cardCornerRadius="12dp"
+	app:cardElevation="2dp"
+	app:strokeColor="@color/serenity_border"
+	app:strokeWidth="1dp">
 
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:orientation="vertical"
-		android:padding="12dp">
+		android:padding="16dp">
 
-		<TextView
+		<com.google.android.material.textview.MaterialTextView
 			android:id="@+id/txtTitle"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:textStyle="bold"
-			android:textSize="16sp" />
+			android:textSize="16sp"
+			android:textColor="@color/serenity_text" />
 
-		<TextView
+		<com.google.android.material.textview.MaterialTextView
 			android:id="@+id/txtSubtitle"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:textSize="12sp" />
+			android:textSize="14sp"
+			android:textColor="@color/serenity_text"
+			android:layout_marginTop="4dp" />
 
 		<LinearLayout
-			android:layout_width="wrap_content"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:orientation="horizontal"
-			android:layout_marginTop="8dp">
+			android:layout_marginTop="12dp"
+			android:gravity="end">
 
-			<ImageButton
+			<com.google.android.material.button.MaterialButton
 				android:id="@+id/btnEdit"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:contentDescription="edit"
-				android:src="@android:drawable/ic_menu_edit" />
+				app:icon="@android:drawable/ic_menu_edit"
+				app:iconTint="@android:color/white"
+				android:backgroundTint="@color/serenity_primary"
+				android:textColor="@android:color/white"
+				style="@style/Widget.Material3.Button.Icon"
+				app:cornerRadius="8dp" />
 
-			<ImageButton
+			<com.google.android.material.button.MaterialButton
 				android:id="@+id/btnDelete"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:contentDescription="delete"
-				android:src="@android:drawable/ic_menu_delete" />
+				app:icon="@android:drawable/ic_menu_delete"
+				app:iconTint="@android:color/white"
+				android:backgroundTint="#ef4444"
+				android:textColor="@android:color/white"
+				style="@style/Widget.Material3.Button.Icon"
+				app:cornerRadius="8dp"
+				android:layout_marginStart="8dp" />
 
 		</LinearLayout>
 

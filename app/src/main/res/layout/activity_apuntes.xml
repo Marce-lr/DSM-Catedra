@@ -1,46 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="@color/serenity_background">
 
-	<com.google.android.material.appbar.MaterialToolbar
-		android:id="@+id/toolbar"
+	<!-- Header -->
+	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		app:title="Apuntes" />
+		android:orientation="vertical"
+		android:gravity="center"
+		android:layout_marginTop="20dp"
+		android:layout_marginBottom="40dp"
+		android:paddingStart="32dp"
+		android:paddingEnd="32dp"
+		android:paddingTop="32dp">
 
-	<androidx.recyclerview.widget.RecyclerView
-		android:id="@+id/recycler"
+		<!-- Título -->
+		<com.google.android.material.textview.MaterialTextView
+			android:id="@+id/tvTitulo"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Apuntes"
+			android:textSize="28sp"
+			android:textStyle="bold"
+			android:textColor="@color/serenity_text"
+			android:layout_marginTop="16dp" />
+
+	</LinearLayout>
+
+	<!-- Lista de apuntes Container -->
+	<com.google.android.material.card.MaterialCardView
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_marginTop="56dp"
-		android:paddingBottom="88dp" />
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		app:cardCornerRadius="20dp"
+		app:cardElevation="2dp"
+		app:strokeColor="@color/serenity_border"
+		app:strokeWidth="1dp"
+		android:layout_marginStart="32dp"
+		android:layout_marginEnd="32dp"
+		android:layout_marginBottom="24dp">
 
-	<com.google.android.material.progressindicator.LinearProgressIndicator
-		android:id="@+id/progress"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:visibility="gone"
-		android:indeterminate="true" />
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical"
+			android:padding="24dp">
 
-	<com.google.android.material.floatingactionbutton.FloatingActionButton
+			<!-- RecyclerView para apuntes -->
+			<androidx.recyclerview.widget.RecyclerView
+				android:id="@+id/recycler"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:clipToPadding="false"
+				app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+		</LinearLayout>
+
+	</com.google.android.material.card.MaterialCardView>
+
+	<!-- Botón agregar apunte -->
+	<com.google.android.material.button.MaterialButton
 		android:id="@+id/fabAdd"
+		android:layout_width="match_parent"
+		android:layout_height="56dp"
+		android:text="Agregar apunte"
+		android:textSize="16sp"
+		android:textStyle="bold"
+		android:backgroundTint="@color/serenity_button"
+		android:textColor="@android:color/white"
+		app:icon="@android:drawable/ic_input_add"
+		app:iconGravity="textStart"
+		app:iconPadding="8dp"
+		app:cornerRadius="12dp"
+		android:layout_marginStart="32dp"
+		android:layout_marginEnd="32dp"
+		android:layout_marginBottom="16dp" />
+
+	<!-- Progress Bar (centrado) -->
+	<com.google.android.material.progressindicator.CircularProgressIndicator
+		android:id="@+id/progress"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_margin="16dp"
-		android:translationY="-30dp"
-		app:layout_anchor="@id/bottomNav"
-		app:layout_anchorGravity="top|end"
-		app:srcCompat="@android:drawable/ic_input_add" />
+		android:layout_gravity="center"
+		android:layout_marginTop="24dp"
+		android:layout_marginBottom="24dp"
+		android:indeterminate="true"
+		android:visibility="gone"
+		app:indicatorColor="@color/serenity_button"
+		app:trackColor="@color/serenity_border" />
 
+	<!-- Bottom Navigation -->
 	<com.google.android.material.bottomnavigation.BottomNavigationView
 		android:id="@+id/bottomNav"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_gravity="bottom"
+		android:background="@color/serenity_card"
+		app:itemIconTint="@drawable/bottom_nav_colors"
+		app:itemTextColor="@drawable/bottom_nav_colors"
 		app:menu="@menu/menu_bottom_nav" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
+</LinearLayout>

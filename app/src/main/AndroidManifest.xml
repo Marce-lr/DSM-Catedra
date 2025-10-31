@@ -46,6 +46,10 @@
         <activity
             android:name=".ApuntesActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".HorariosActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
 
 	<item
 		android:id="@+id/nav_apuntes"
 		android:title="Apuntes"
-		android:icon="@android:drawable/ic_menu_save" />
+		android:icon="@android:drawable/ic_menu_save"
+		app:iconTint="@color/serenity_text" />
 
 	<item
 		android:id="@+id/nav_actividades"
 		android:title="Actividades"
-		android:icon="@android:drawable/ic_menu_agenda" />
+		android:icon="@android:drawable/ic_menu_agenda"
+		app:iconTint="@color/serenity_text" />
 
 	<item
 		android:id="@+id/nav_perfil"
 		android:title="Perfil"
-		android:icon="@android:drawable/ic_menu_myplaces" />
+		android:icon="@android:drawable/ic_menu_myplaces"
+		app:iconTint="@color/serenity_text" />
 
 </menu>
-
-

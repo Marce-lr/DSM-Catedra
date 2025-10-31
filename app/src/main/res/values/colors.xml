@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Colores del tema Serenity - SAGE FOREST -->
+    <color name="serenity_background">#f8fbf8</color>
+    <color name="serenity_primary">#689f38</color>
+    <color name="serenity_accent">#9ccc65</color>
+    <color name="serenity_text">#33691e</color>
+    <color name="serenity_button">#7cb342</color>
+    <color name="serenity_card">#ffffff</color>
+    <color name="serenity_border">#c5e1a5</color>
+    <color name="serenity_input_background">#ffffff</color>
 </resources>

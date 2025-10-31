@@ -1,9 +1,43 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.AsistenteEstudiantil" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Colores principales para tema claro -->
+        <item name="colorPrimary">@color/serenity_primary</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorPrimaryContainer">@color/serenity_accent</item>
+        <item name="colorOnPrimaryContainer">@color/serenity_text</item>
+
+        <item name="colorSecondary">@color/serenity_button</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+        <item name="colorSecondaryContainer">@color/serenity_accent</item>
+        <item name="colorOnSecondaryContainer">@color/serenity_text</item>
+
+        <!-- Colores de superficie y fondo -->
+        <item name="colorSurface">@color/serenity_card</item>
+        <item name="colorOnSurface">@color/serenity_text</item>
+        <item name="colorSurfaceVariant">@color/serenity_background</item>
+        <item name="colorOnSurfaceVariant">@color/serenity_text</item>
+
+        <item name="android:colorBackground">@color/serenity_background</item>
+        <item name="colorOnBackground">@color/serenity_text</item>
+
+        <!-- Colores de error -->
+        <item name="colorError">#ff0000</item>
+        <item name="colorOnError">@android:color/white</item>
+
+        <!-- Barra de estado -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+
+        <!-- Estilos personalizados básicos -->
+        <item name="materialButtonStyle">@style/Widget.AsistenteEstudiantil.Button</item>
     </style>
 
     <style name="Theme.AsistenteEstudiantil" parent="Base.Theme.AsistenteEstudiantil" />
+
+    <!-- Estilo personalizado para botones -->
+    <style name="Widget.AsistenteEstudiantil.Button" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/serenity_button</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
 </resources>

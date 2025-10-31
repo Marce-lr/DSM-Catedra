@@ -1,79 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="24dp">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/serenity_background"
+    android:fitsSystemWindows="true"
+    android:scrollbars="none">
 
-    <!-- Título -->
-    <com.google.android.material.textview.MaterialTextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/cambiar_contrasena_titulo"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="?attr/colorPrimary"
-        android:layout_marginBottom="24dp" />
+        android:orientation="vertical"
+        android:padding="32dp">
 
-    <!-- Campo de contraseña actual -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilContrasenaActual"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/cambiar_contrasena_actual"
-        app:startIconDrawable="@android:drawable/ic_lock_lock"
-        app:endIconMode="password_toggle"
-        app:errorEnabled="true"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etContrasenaActual"
+        <!-- Header -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp">
 
-    <!-- Campo de nueva contraseña -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilNuevaContrasena"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="@string/cambiar_contrasena_nueva"
-        app:startIconDrawable="@android:drawable/ic_lock_lock"
-        app:endIconMode="password_toggle"
-        app:errorEnabled="true"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+            <!-- Icono de seguridad -->
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@android:drawable/ic_lock_lock"
+                android:background="@color/serenity_primary"
+                android:padding="20dp"
+                android:clipToOutline="true"
+                app:tint="@android:color/white"
+                android:outlineProvider="background"
+                android:elevation="4dp"
+                app:cornerRadius="20dp" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etNuevaContrasena"
+            <!-- Título -->
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cambiar_contrasena_titulo"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/serenity_text"
+                android:layout_marginTop="16dp" />
+
+            <!-- Subtítulo -->
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Actualiza tu contraseña de seguridad"
+                android:textSize="16sp"
+                android:textColor="@color/serenity_text"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
+        <!-- Form Container -->
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp"
+            app:strokeColor="@color/serenity_border"
+            app:strokeWidth="1dp"
+            android:layout_marginBottom="24dp">
 
-    <!-- Campo de confirmar nueva contraseña -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilConfirmarNuevaContrasena"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="@string/cambiar_contrasena_confirmar"
-        app:startIconDrawable="@android:drawable/ic_lock_lock"
-        app:endIconMode="password_toggle"
-        app:errorEnabled="true"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etConfirmarNuevaContrasena"
+                <!-- Campo de contraseña actual -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilContrasenaActual"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/cambiar_contrasena_actual"
+                    android:backgroundTint="@color/serenity_border"
+                    app:boxStrokeColor="@color/serenity_primary"
+                    app:startIconTint="@color/serenity_primary"
+                    app:endIconTint="@color/serenity_primary"
+                    app:hintTextColor="@color/serenity_text"
+                    app:startIconDrawable="@android:drawable/ic_lock_lock"
+                    app:endIconMode="password_toggle"
+                    app:errorEnabled="true"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etContrasenaActual"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:textColor="@color/serenity_text"
+                        android:backgroundTint="@color/serenity_primary" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Espaciado -->
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp" />
+
+                <!-- Campo de nueva contraseña -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilNuevaContrasena"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/cambiar_contrasena_nueva"
+                    android:backgroundTint="@color/serenity_border"
+                    app:boxStrokeColor="@color/serenity_primary"
+                    app:startIconTint="@color/serenity_primary"
+                    app:endIconTint="@color/serenity_primary"
+                    app:hintTextColor="@color/serenity_text"
+                    app:startIconDrawable="@android:drawable/ic_lock_lock"
+                    app:endIconMode="password_toggle"
+                    app:errorEnabled="true"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etNuevaContrasena"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:textColor="@color/serenity_text"
+                        android:backgroundTint="@color/serenity_primary" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Espaciado -->
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp" />
+
+                <!-- Campo de confirmar nueva contraseña -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilConfirmarNuevaContrasena"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/cambiar_contrasena_confirmar"
+                    android:backgroundTint="@color/serenity_border"
+                    app:boxStrokeColor="@color/serenity_primary"
+                    app:startIconTint="@color/serenity_primary"
+                    app:endIconTint="@color/serenity_primary"
+                    app:hintTextColor="@color/serenity_text"
+                    app:startIconDrawable="@android:drawable/ic_lock_lock"
+                    app:endIconMode="password_toggle"
+                    app:errorEnabled="true"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etConfirmarNuevaContrasena"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:textColor="@color/serenity_text"
+                        android:backgroundTint="@color/serenity_primary" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Botón actualizar contraseña -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnActualizarContrasena"
             android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/cambiar_contrasena_boton"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/serenity_button"
+            android:textColor="@android:color/white"
+            app:cornerRadius="12dp" />
+
+        <!-- Progress Bar (centrado) -->
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:indicatorColor="@color/serenity_button"
+            app:trackColor="@color/serenity_border" />
 
-</LinearLayout>
+        <!-- Texto informativo -->
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Usa una contraseña segura y única"
+            android:textSize="12sp"
+            android:textColor="@color/serenity_text"
+            android:layout_marginTop="40dp" />
 
+    </LinearLayout>
+</ScrollView>

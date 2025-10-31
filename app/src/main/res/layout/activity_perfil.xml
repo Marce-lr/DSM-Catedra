@@ -4,190 +4,265 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="?attr/colorSurface">
+    android:background="@color/serenity_background">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:scrollbars="none"
+    android:padding="32dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="24dp">
+            android:orientation="vertical">
 
-        <!-- Título -->
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvTitulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/perfil_titulo"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:textColor="?attr/colorPrimary"
-            android:layout_marginTop="32dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- Campo de nombre -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilNombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:hint="@string/perfil_nombre"
-            app:startIconDrawable="@android:drawable/ic_menu_myplaces"
-            app:endIconMode="clear_text"
-            app:errorEnabled="true"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            app:layout_constraintTop_toBottomOf="@id/tvTitulo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etNombre"
+            <!-- Header con icono de perfil -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName|textCapWords"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="40dp">
 
-        <!-- Campo de correo (solo lectura) -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilCorreo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="@string/perfil_correo"
-            app:startIconDrawable="@android:drawable/ic_dialog_email"
-            app:errorEnabled="true"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            app:layout_constraintTop_toBottomOf="@id/tilNombre"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+                <!-- Título -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvTitulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/perfil_titulo"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/serenity_text"
+                    android:layout_marginTop="16dp" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etCorreo"
+
+            </LinearLayout>
+
+            <!-- Form Container -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:enabled="false"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/serenity_border"
+                app:strokeWidth="1dp"
+                android:layout_marginBottom="24dp">
 
-        <!-- Campo de universidad -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilUniversidad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="@string/perfil_universidad"
-            app:startIconDrawable="@android:drawable/ic_dialog_map"
-            app:endIconMode="clear_text"
-            app:errorEnabled="true"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            app:layout_constraintTop_toBottomOf="@id/tilCorreo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etUniversidad"
+                    <!-- Campo de nombre -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilNombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/perfil_nombre"
+                        android:backgroundTint="@color/serenity_border"
+                        app:boxStrokeColor="@color/serenity_primary"
+                        app:startIconTint="@color/serenity_primary"
+                        app:endIconTint="@color/serenity_primary"
+                        app:hintTextColor="@color/serenity_text"
+                        app:startIconDrawable="@android:drawable/ic_menu_myplaces"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusTopStart="12dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etNombre"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName|textCapWords"
+                            android:maxLines="1"
+                            android:textColor="@color/serenity_text"
+                            android:backgroundTint="@color/serenity_primary" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Espaciado -->
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
+
+                    <!-- Campo de correo (solo lectura) -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilCorreo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/perfil_correo"
+                        android:backgroundTint="@color/serenity_border"
+                        app:boxStrokeColor="@color/serenity_primary"
+                        app:startIconTint="@color/serenity_primary"
+                        app:hintTextColor="@color/serenity_text"
+                        app:startIconDrawable="@android:drawable/ic_dialog_email"
+                        app:errorEnabled="true"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusTopStart="12dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCorreo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:enabled="false"
+                            android:maxLines="1"
+                            android:textColor="@color/serenity_text"
+                            android:backgroundTint="@color/serenity_primary" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Espaciado -->
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
+
+                    <!-- Campo de universidad -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilUniversidad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/perfil_universidad"
+                        android:backgroundTint="@color/serenity_border"
+                        app:boxStrokeColor="@color/serenity_primary"
+                        app:startIconTint="@color/serenity_primary"
+                        app:endIconTint="@color/serenity_primary"
+                        app:hintTextColor="@color/serenity_text"
+                        app:startIconDrawable="@android:drawable/ic_dialog_map"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusTopStart="12dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etUniversidad"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapWords"
+                            android:maxLines="1"
+                            android:textColor="@color/serenity_text"
+                            android:backgroundTint="@color/serenity_primary" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Espaciado -->
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
+
+                    <!-- Campo de carrera -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilCarrera"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/perfil_carrera"
+                        android:backgroundTint="@color/serenity_border"
+                        app:boxStrokeColor="@color/serenity_primary"
+                        app:startIconTint="@color/serenity_primary"
+                        app:endIconTint="@color/serenity_primary"
+                        app:hintTextColor="@color/serenity_text"
+                        app:startIconDrawable="@android:drawable/ic_menu_agenda"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusTopStart="12dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCarrera"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapWords"
+                            android:maxLines="1"
+                            android:textColor="@color/serenity_text"
+                            android:backgroundTint="@color/serenity_primary" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Botón guardar cambios -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGuardar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textCapWords"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="56dp"
+                android:text="@string/perfil_guardar"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/serenity_button"
+                android:textColor="@android:color/white"
+                app:cornerRadius="12dp" />
 
-        <!-- Campo de carrera -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilCarrera"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="@string/perfil_carrera"
-            app:startIconDrawable="@android:drawable/ic_menu_agenda"
-            app:endIconMode="clear_text"
-            app:errorEnabled="true"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            app:layout_constraintTop_toBottomOf="@id/tilUniversidad"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etCarrera"
+            <!-- Botón cambiar contraseña -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCambiarContrasena"
                 android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/perfil_cambiar_contrasena"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/serenity_button"
+                app:strokeColor="@color/serenity_button"
+                app:cornerRadius="12dp"
+                style="@style/Widget.Material3.Button.OutlinedButton" />
+
+            <!-- Botón cerrar sesión -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCerrarSesion"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/perfil_cerrar_sesion"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#ef4444"
+                app:strokeColor="#ef4444"
+                app:cornerRadius="12dp"
+                style="@style/Widget.Material3.Button.OutlinedButton" />
+
+            <!-- Progress Bar (centrado) -->
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textCapWords"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:indeterminate="true"
+                android:visibility="gone"
+                app:indicatorColor="@color/serenity_button"
+                app:trackColor="@color/serenity_border" />
 
-        <!-- Botón guardar cambios -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnGuardar"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_marginTop="32dp"
-            android:text="@string/perfil_guardar"
-            android:textSize="16sp"
-            app:cornerRadius="12dp"
-            app:layout_constraintTop_toBottomOf="@id/tilCarrera"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- Botón cambiar contraseña -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCambiarContrasena"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/perfil_cambiar_contrasena"
-            android:textSize="16sp"
-            app:cornerRadius="12dp"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            app:layout_constraintTop_toBottomOf="@id/btnGuardar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- Botón cerrar sesión -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCerrarSesion"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="32dp"
-            android:text="@string/perfil_cerrar_sesion"
-            android:textSize="16sp"
-            android:textColor="@android:color/holo_red_dark"
-            app:cornerRadius="12dp"
-            app:strokeColor="@android:color/holo_red_dark"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            app:layout_constraintTop_toBottomOf="@id/btnCambiarContrasena"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
-        <!-- Progress Bar -->
-        <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:indeterminate="true"
-            android:visibility="gone"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </ScrollView>
 
+    <!-- Bottom Navigation con colores MintFresh -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/serenity_card"
+        app:itemIconTint="@drawable/bottom_nav_colors"
+        app:itemTextColor="@drawable/bottom_nav_colors"
         app:menu="@menu/menu_bottom_nav" />
 
 </LinearLayout>
-

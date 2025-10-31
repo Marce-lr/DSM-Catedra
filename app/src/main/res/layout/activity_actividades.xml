@@ -1,73 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="@color/serenity_background">
 
-	<com.google.android.material.appbar.MaterialToolbar
+	<!-- Header -->
+
+	<!-- Filtros Container -->
+	<LinearLayout
 		android:id="@+id/toolbar"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		app:title="@string/actividades_titulo" />
+		android:layout_marginTop="20dp"
+		android:layout_marginBottom="40dp"
+		android:gravity="center"
+		android:orientation="vertical"
+		android:padding="32dp">
 
-	<com.google.android.material.chip.ChipGroup
-		android:id="@+id/filterGroup"
+		<!-- Título -->
+		<com.google.android.material.textview.MaterialTextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:text="@string/actividades_titulo"
+			android:textColor="@color/serenity_text"
+			android:textSize="28sp"
+			android:textStyle="bold" />
+
+	</LinearLayout>
+
+	<com.google.android.material.card.MaterialCardView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="56dp"
-		app:singleLine="true">
+		app:cardCornerRadius="20dp"
+		app:cardElevation="2dp"
+		app:strokeColor="@color/serenity_border"
+		app:strokeWidth="1dp"
+		android:layout_marginStart="32dp"
+		android:layout_marginEnd="32dp"
+		android:layout_marginBottom="24dp">
 
-		<com.google.android.material.chip.Chip
-			android:id="@+id/chipPriority"
-			style="@style/Widget.Material3.Chip.Filter"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/ordenar_prioridad"
-			android:checkable="true" />
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical"
+			android:padding="24dp">
 
-		<com.google.android.material.chip.Chip
-			android:id="@+id/chipStatus"
-			style="@style/Widget.Material3.Chip.Filter"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/ordenar_estado"
-			android:checkable="true" />
+			<!-- Chips de filtro -->
+			<com.google.android.material.chip.ChipGroup
+				android:id="@+id/filterGroup"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				app:chipSpacingHorizontal="8dp"
+				app:singleLine="true">
 
-		<com.google.android.material.chip.Chip
-			android:id="@+id/chipDate"
-			style="@style/Widget.Material3.Chip.Filter"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/ordenar_fecha"
-			android:checkable="true" />
+				<com.google.android.material.chip.Chip
+					android:id="@+id/chipPriority"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:checkable="true"
+					android:text="@string/ordenar_prioridad" />
 
-	</com.google.android.material.chip.ChipGroup>
+				<com.google.android.material.chip.Chip
+					android:id="@+id/chipStatus"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:checkable="true"
+					android:text="@string/ordenar_estado" />
 
-	<androidx.recyclerview.widget.RecyclerView
-		android:id="@+id/recycler"
+				<com.google.android.material.chip.Chip
+					android:id="@+id/chipDate"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:checkable="true"
+					android:text="@string/ordenar_fecha" />
+
+			</com.google.android.material.chip.ChipGroup>
+
+		</LinearLayout>
+
+	</com.google.android.material.card.MaterialCardView>
+
+	<!-- Lista de actividades Container -->
+	<com.google.android.material.card.MaterialCardView
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_marginTop="112dp"
-		android:paddingBottom="88dp"
-		app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		app:cardCornerRadius="20dp"
+		app:cardElevation="2dp"
+		app:strokeColor="@color/serenity_border"
+		app:strokeWidth="1dp"
+		android:layout_marginStart="32dp"
+		android:layout_marginEnd="32dp"
+		android:layout_marginBottom="24dp">
 
-	<com.google.android.material.floatingactionbutton.FloatingActionButton
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical"
+			android:padding="24dp">
+
+			<!-- RecyclerView para actividades -->
+			<androidx.recyclerview.widget.RecyclerView
+				android:id="@+id/recycler"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:clipToPadding="false"
+				app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+		</LinearLayout>
+
+	</com.google.android.material.card.MaterialCardView>
+
+	<!-- Botón agregar actividad -->
+	<com.google.android.material.button.MaterialButton
 		android:id="@+id/fabAdd"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_margin="16dp"
-		android:translationY="-30dp"
-		app:layout_anchor="@id/bottomNav"
-		app:layout_anchorGravity="top|end"
-		app:srcCompat="@android:drawable/ic_input_add" />
+		android:layout_width="match_parent"
+		android:layout_height="56dp"
+		android:text="Agregar actividad"
+		android:textSize="16sp"
+		android:textStyle="bold"
+		android:backgroundTint="@color/serenity_button"
+		android:textColor="@android:color/white"
+		app:icon="@android:drawable/ic_input_add"
+		app:iconGravity="textStart"
+		app:iconPadding="8dp"
+		app:cornerRadius="12dp"
+		android:layout_marginStart="32dp"
+		android:layout_marginEnd="32dp"
+		android:layout_marginBottom="16dp" />
 
+	<!-- Bottom Navigation -->
 	<com.google.android.material.bottomnavigation.BottomNavigationView
 		android:id="@+id/bottomNav"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_gravity="bottom"
+		android:background="@color/serenity_card"
+		app:itemIconTint="@drawable/bottom_nav_colors"
+		app:itemTextColor="@drawable/bottom_nav_colors"
 		app:menu="@menu/menu_bottom_nav" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
+</LinearLayout>
