@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1010675659797",
+    "firebase_url": "https://asistenteestudiantildb-default-rtdb.firebaseio.com",
+    "project_id": "asistenteestudiantildb",
+    "storage_bucket": "asistenteestudiantildb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1010675659797:android:f863e69e7e33f5082e0a1c",
+        "android_client_info": {
+          "package_name": "com.example.asistenteestudiantil"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhHYTro9MzQGIqFotBITW4Dd8YhN0BAAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

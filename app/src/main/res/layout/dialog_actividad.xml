@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:padding="16dp">
+
+		<EditText
+			android:id="@+id/inputTitle"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:hint="@string/actividad_titulo" />
+
+		<EditText
+			android:id="@+id/inputDescription"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:hint="@string/actividad_descripcion" />
+
+		<Spinner
+			android:id="@+id/spinnerType"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content" />
+
+		<Spinner
+			android:id="@+id/spinnerPriority"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content" />
+
+		<Spinner
+			android:id="@+id/spinnerStatus"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content" />
+
+		<EditText
+			android:id="@+id/inputWeight"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:inputType="numberDecimal"
+			android:hint="@string/actividad_ponderacion" />
+
+		<EditText
+			android:id="@+id/inputScore"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:inputType="numberDecimal"
+			android:hint="@string/actividad_nota" />
+
+	</LinearLayout>
+
+</ScrollView>
+
+

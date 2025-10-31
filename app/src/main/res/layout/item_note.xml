@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_margin="8dp">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:padding="12dp">
+
+		<TextView
+			android:id="@+id/txtTitle"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"
+			android:textSize="16sp" />
+
+		<TextView
+			android:id="@+id/txtSubtitle"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textSize="12sp" />
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_marginTop="8dp">
+
+			<ImageButton
+				android:id="@+id/btnOpen"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@android:drawable/ic_menu_view"
+				android:contentDescription="open" />
+
+			<ImageButton
+				android:id="@+id/btnDelete"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@android:drawable/ic_menu_delete"
+				android:contentDescription="delete" />
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
+
+

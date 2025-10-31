@@ -1,3 +1,65 @@
 <resources>
     <string name="app_name">Asistente Estudiantil</string>
+    
+    <!-- Login -->
+    <string name="login_titulo">Iniciar Sesión</string>
+    <string name="login_correo">Correo electrónico</string>
+    <string name="login_contrasena">Contraseña</string>
+    <string name="login_boton">Iniciar Sesión</string>
+    <string name="login_registro">¿No tienes cuenta? Regístrate</string>
+    <string name="login_error_credenciales">Correo o contraseña incorrectos</string>
+    
+    <!-- Registro -->
+    <string name="registro_titulo">Crear Cuenta</string>
+    <string name="registro_nombre">Nombre completo</string>
+    <string name="registro_correo">Correo electrónico</string>
+    <string name="registro_contrasena">Contraseña</string>
+    <string name="registro_confirmar_contrasena">Confirmar contraseña</string>
+    <string name="registro_universidad">Universidad</string>
+    <string name="registro_carrera">Carrera</string>
+    <string name="registro_boton">Registrarse</string>
+    <string name="registro_login">¿Ya tienes cuenta? Inicia sesión</string>
+    <string name="registro_exito">Cuenta creada exitosamente</string>
+    <string name="registro_error">Error al crear la cuenta</string>
+    
+    <!-- Perfil -->
+    <string name="perfil_titulo">Mi Perfil</string>
+    <string name="perfil_nombre">Nombre completo</string>
+    <string name="perfil_correo">Correo electrónico</string>
+    <string name="perfil_universidad">Universidad</string>
+    <string name="perfil_carrera">Carrera</string>
+    <string name="perfil_guardar">Guardar Cambios</string>
+    <string name="perfil_cambiar_contrasena">Cambiar Contraseña</string>
+    <string name="perfil_cerrar_sesion">Cerrar Sesión</string>
+    <string name="perfil_actualizado">Perfil actualizado exitosamente</string>
+    <string name="perfil_error">Error al actualizar el perfil</string>
+    
+    <!-- Cambiar Contraseña -->
+    <string name="cambiar_contrasena_titulo">Cambiar Contraseña</string>
+    <string name="cambiar_contrasena_actual">Contraseña actual</string>
+    <string name="cambiar_contrasena_nueva">Nueva contraseña</string>
+    <string name="cambiar_contrasena_confirmar">Confirmar nueva contraseña</string>
+    <string name="cambiar_contrasena_boton">Cambiar Contraseña</string>
+    <string name="cambiar_contrasena_exito">Contraseña cambiada exitosamente</string>
+    <string name="cambiar_contrasena_error">Error al cambiar la contraseña</string>
+    
+    <!-- General -->
+    <string name="cargando">Cargando…</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="error_conexion">Error de conexión. Verifica tu internet</string>
+
+    <!-- Actividades -->
+    <string name="actividades_titulo">Actividades</string>
+    <string name="actividad_nueva">Nueva actividad</string>
+    <string name="actividad_editar">Editar actividad</string>
+    <string name="actividad_titulo">Título</string>
+    <string name="actividad_descripcion">Descripción</string>
+    <string name="actividad_ponderacion">Ponderación (%)</string>
+    <string name="actividad_nota">Nota (0-10) opcional</string>
+    <string name="ordenar_prioridad">Prioridad</string>
+    <string name="ordenar_estado">Estado</string>
+    <string name="ordenar_fecha">Fecha</string>
+    <string name="guardar">Guardar</string>
+    <string name="item_actividad_subtitle">%1$s • %2$s • %3$s • %4$.1f%%</string>
 </resources>
