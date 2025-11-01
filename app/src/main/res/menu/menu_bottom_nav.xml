@@ -3,6 +3,12 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto">
 
 	<item
+		android:id="@+id/nav_dashboard"
+		android:title="Inicio"
+		android:icon="@android:drawable/ic_menu_compass"
+		app:iconTint="@color/serenity_text" />
+
+	<item
 		android:id="@+id/nav_apuntes"
 		android:title="Apuntes"
 		android:icon="@android:drawable/ic_menu_save"
@@ -12,6 +18,18 @@
 		android:id="@+id/nav_actividades"
 		android:title="Actividades"
 		android:icon="@android:drawable/ic_menu_agenda"
+		app:iconTint="@color/serenity_text" />
+
+	<item
+		android:id="@+id/nav_horarios"
+		android:title="Horarios"
+		android:icon="@android:drawable/ic_menu_recent_history"
+		app:iconTint="@color/serenity_text" />
+
+	<item
+		android:id="@+id/nav_calendario"
+		android:title="Calendario"
+		android:icon="@android:drawable/ic_menu_today"
 		app:iconTint="@color/serenity_text" />
 
 	<item

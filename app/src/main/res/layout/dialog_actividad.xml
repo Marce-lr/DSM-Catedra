@@ -9,6 +9,20 @@
 		android:orientation="vertical"
 		android:padding="16dp">
 
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="Materia"
+			android:textSize="14sp"
+			android:textStyle="bold"
+			android:layout_marginBottom="4dp" />
+
+		<Spinner
+			android:id="@+id/spinnerMateria"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="8dp" />
+
 		<EditText
 			android:id="@+id/inputTitle"
 			android:layout_width="match_parent"

@@ -51,6 +51,14 @@ dependencies {
     implementation(libs.firebase.database)
     implementation(libs.firebase.database.ktx)
     implementation(libs.firebase.storage)
+    
+    // API REST
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+    implementation(libs.gson)
+    implementation(libs.kotlinx.coroutines.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

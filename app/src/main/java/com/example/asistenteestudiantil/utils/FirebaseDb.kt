@@ -2,8 +2,10 @@ package com.example.asistenteestudiantil.utils
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.example.asistenteestudiantil.models.AcademicActivity
 import com.example.asistenteestudiantil.models.Subject
 import com.example.asistenteestudiantil.models.Schedule
@@ -24,8 +26,14 @@ object FirebaseDb {
 	fun coursesRef(): DatabaseReference = userRef().child("courses")
 	fun courseRef(courseId: String): DatabaseReference = coursesRef().child(courseId)
 
-	// Referencias para Actividades (se mantienen con subjects)
+	// Referencias para Actividades (compatibilidad con subjects antiguos)
 	fun activitiesRef(subjectId: String): DatabaseReference = subjectRef(subjectId).child("activities")
+	
+	// Referencias para Actividades relacionadas con Courses
+	fun courseActivitiesRef(courseId: String): DatabaseReference = courseRef(courseId).child("activities")
+	
+	// Referencias globales de actividades (por courseId)
+	fun activitiesByCourseRef(): DatabaseReference = userRef().child("activitiesByCourse")
 
 	// Referencias para Horarios (se asocian con courses)
 	fun schedulesRef(): DatabaseReference = userRef().child("schedules")
@@ -51,13 +59,45 @@ object FirebaseDb {
 		courseRef(courseId).removeValue()
 	}
 
-	// CRUD para Actividades (se mantienen igual)
+	// CRUD para Actividades
 	fun createOrUpdateActivity(activity: AcademicActivity) {
-		val id = if (activity.id.isBlank()) activitiesRef(activity.subjectId).push().key!! else activity.id
-		activitiesRef(activity.subjectId).child(id).setValue(activity.copy(id = id, updatedAt = System.currentTimeMillis()))
-		recalculateSubjectPercentage(activity.subjectId)
+		val id = if (activity.id.isBlank()) {
+			// Si tiene courseId, usar referencia de Course, sino usar Subject antiguo
+			if (activity.courseId.isNotEmpty()) {
+				courseActivitiesRef(activity.courseId).push().key!!
+			} else {
+				activitiesRef(activity.subjectId).push().key!!
+			}
+		} else {
+			activity.id
+		}
+		
+		val updatedActivity = activity.copy(id = id, updatedAt = System.currentTimeMillis())
+		
+		// Guardar en la ubicación correspondiente
+		if (activity.courseId.isNotEmpty()) {
+			courseActivitiesRef(activity.courseId).child(id).setValue(updatedActivity)
+			// También guardar referencia global
+			activitiesByCourseRef().child(id).setValue(updatedActivity)
+			recalculateCoursePercentage(activity.courseId)
+		} else {
+			activitiesRef(activity.subjectId).child(id).setValue(updatedActivity)
+			recalculateSubjectPercentage(activity.subjectId)
+		}
 	}
 
+	fun deleteActivity(activity: AcademicActivity) {
+		if (activity.courseId.isNotEmpty()) {
+			courseActivitiesRef(activity.courseId).child(activity.id).removeValue()
+			activitiesByCourseRef().child(activity.id).removeValue()
+			recalculateCoursePercentage(activity.courseId)
+		} else {
+			activitiesRef(activity.subjectId).child(activity.id).removeValue()
+			recalculateSubjectPercentage(activity.subjectId)
+		}
+	}
+	
+	// Sobrecarga para compatibilidad
 	fun deleteActivity(subjectId: String, activityId: String) {
 		activitiesRef(subjectId).child(activityId).removeValue()
 		recalculateSubjectPercentage(subjectId)
@@ -75,15 +115,38 @@ object FirebaseDb {
 
 	// Métodos de cálculo (se mantienen para subjects)
 	fun recalculateSubjectPercentage(subjectId: String, onComplete: ((Double) -> Unit)? = null) {
-		activitiesRef(subjectId).get().addOnSuccessListener { snapshot ->
-			var total = 0.0
-			snapshot.children.forEach { child ->
-				val act = child.getValue(AcademicActivity::class.java)
-				if (act != null) total += act.contributionToGlobal()
+		activitiesRef(subjectId).addListenerForSingleValueEvent(object : ValueEventListener {
+			override fun onDataChange(snapshot: DataSnapshot) {
+				var total = 0.0
+				snapshot.children.forEach { child ->
+					val act = child.getValue(AcademicActivity::class.java)
+					if (act != null) total += act.contributionToGlobal()
+				}
+				subjectRef(subjectId).child("globalPercentage").setValue(total)
+				onComplete?.let { it(total) }
 			}
-			subjectRef(subjectId).child("globalPercentage").setValue(total)
-			onComplete?.let { it(total) }
-		}
+			override fun onCancelled(error: DatabaseError) {
+				onComplete?.let { it(0.0) }
+			}
+		})
+	}
+	
+	// Métodos de cálculo para Courses
+	fun recalculateCoursePercentage(courseId: String, onComplete: ((Double) -> Unit)? = null) {
+		courseActivitiesRef(courseId).addListenerForSingleValueEvent(object : ValueEventListener {
+			override fun onDataChange(snapshot: DataSnapshot) {
+				var total = 0.0
+				snapshot.children.forEach { child ->
+					val act = child.getValue(AcademicActivity::class.java)
+					if (act != null) total += act.contributionToGlobal()
+				}
+				courseRef(courseId).child("globalPercentage").setValue(total)
+				onComplete?.let { it(total) }
+			}
+			override fun onCancelled(error: DatabaseError) {
+				onComplete?.let { it(0.0) }
+			}
+		})
 	}
 
 	// Métodos de mapeo

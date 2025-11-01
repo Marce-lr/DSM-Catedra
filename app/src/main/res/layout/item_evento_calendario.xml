@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_margin="8dp"
+	app:cardCornerRadius="12dp"
+	app:cardElevation="2dp"
+	app:strokeColor="@color/serenity_border"
+	app:strokeWidth="1dp"
+	android:clickable="true"
+	android:focusable="true">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:padding="16dp">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:gravity="center_vertical">
+
+			<com.google.android.material.textview.MaterialTextView
+				android:id="@+id/txtTitle"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:textStyle="bold"
+				android:textSize="18sp"
+				android:textColor="@color/serenity_text"
+				android:maxLines="2"
+				android:ellipsize="end" />
+
+			<com.google.android.material.chip.Chip
+				android:id="@+id/chipImportant"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Importante"
+				android:textSize="10sp"
+				app:chipBackgroundColor="#FF9800"
+				android:visibility="gone" />
+
+		</LinearLayout>
+
+		<com.google.android.material.textview.MaterialTextView
+			android:id="@+id/txtDescription"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textSize="14sp"
+			android:textColor="@color/serenity_text"
+			android:layout_marginTop="8dp"
+			android:maxLines="3"
+			android:ellipsize="end" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_marginTop="12dp">
+
+			<com.google.android.material.textview.MaterialTextView
+				android:id="@+id/txtDate"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:textSize="12sp"
+				android:textColor="@color/serenity_text"
+				app:drawableStartCompat="@android:drawable/ic_menu_today" />
+
+			<com.google.android.material.textview.MaterialTextView
+				android:id="@+id/txtLocation"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:textSize="12sp"
+				android:textColor="@color/serenity_text"
+				android:gravity="end"
+				app:drawableStartCompat="@android:drawable/ic_menu_mylocation" />
+
+		</LinearLayout>
+
+		<com.google.android.material.chip.Chip
+			android:id="@+id/chipType"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:textSize="10sp"
+			app:chipBackgroundColor="@color/serenity_primary" />
+
+	</LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
+

@@ -6,7 +6,8 @@ enum class ActivityStatus { PENDIENTE, EN_PROGRESO, COMPLETADA }
 
 data class AcademicActivity(
 	val id: String = "",
-	val subjectId: String = "",
+	val subjectId: String = "", // Para compatibilidad con Subject antiguo
+	val courseId: String = "", // Nueva relación con Course
 	val title: String = "",
 	val description: String = "",
 	val type: ActivityType = ActivityType.TAREA,

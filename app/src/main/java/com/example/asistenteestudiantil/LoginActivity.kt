@@ -69,7 +69,7 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Login exitoso
                     val user = auth.currentUser
-                    irAActividades()
+                    irADashboard()
                 } else {
                     // Error en el login
                     val mensajeError = when (task.exception?.message) {
@@ -99,8 +99,8 @@ class LoginActivity : AppCompatActivity() {
         startActivity(intent)
     }
     
-    private fun irAActividades() {
-        val intent = Intent(this, ActividadesActivity::class.java)
+    private fun irADashboard() {
+        val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
         finish()
     }

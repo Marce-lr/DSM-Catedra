@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="@color/serenity_background">
+
+	<!-- Header -->
+	<LinearLayout
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="20dp"
+		android:layout_marginBottom="40dp"
+		android:gravity="center"
+		android:orientation="vertical"
+		android:padding="32dp">
+
+		<!-- Título -->
+		<com.google.android.material.textview.MaterialTextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:text="Calendario Institucional"
+			android:textColor="@color/serenity_text"
+			android:textSize="28sp"
+			android:textStyle="bold" />
+
+		<!-- Botón para acceder a Noticias -->
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNoticias"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:text="Ver Noticias"
+			android:textSize="14sp"
+			style="@style/Widget.Material3.Button.OutlinedButton"
+			app:icon="@android:drawable/ic_menu_view"
+			app:iconGravity="textStart" />
+
+	</LinearLayout>
+
+	<!-- Calendario Container -->
+	<com.google.android.material.card.MaterialCardView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		app:cardCornerRadius="20dp"
+		app:cardElevation="2dp"
+		app:strokeColor="@color/serenity_border"
+		app:strokeWidth="1dp"
+		android:layout_marginStart="32dp"
+		android:layout_marginEnd="32dp"
+		android:layout_marginBottom="24dp">
+
+		<ScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:padding="24dp">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+
+				<!-- Progress Bar -->
+				<ProgressBar
+					android:id="@+id/progress"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:visibility="gone" />
+
+				<!-- RecyclerView para eventos -->
+				<androidx.recyclerview.widget.RecyclerView
+					android:id="@+id/recyclerEventos"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:nestedScrollingEnabled="false"
+					app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+				<!-- Mensaje de error o vacío -->
+				<com.google.android.material.textview.MaterialTextView
+					android:id="@+id/txtEmpty"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:gravity="center"
+					android:text="No hay eventos disponibles"
+					android:textColor="@color/serenity_text"
+					android:textSize="16sp"
+					android:visibility="gone" />
+
+			</LinearLayout>
+
+		</ScrollView>
+
+	</com.google.android.material.card.MaterialCardView>
+
+	<!-- Bottom Navigation -->
+	<com.google.android.material.bottomnavigation.BottomNavigationView
+		android:id="@+id/bottomNav"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:menu="@menu/menu_bottom_nav" />
+
+</LinearLayout>
+

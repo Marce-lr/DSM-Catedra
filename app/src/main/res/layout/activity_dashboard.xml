@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/serenity_background">
+
+<ScrollView
+	android:id="@+id/scrollView"
+	android:layout_width="0dp"
+	android:layout_height="0dp"
+	android:fillViewport="true"
+	app:layout_constraintTop_toTopOf="parent"
+	app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+	app:layout_constraintStart_toStartOf="parent"
+	app:layout_constraintEnd_toEndOf="parent">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<!-- Header -->
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:gravity="center"
+			android:layout_marginTop="20dp"
+			android:layout_marginBottom="24dp"
+			android:padding="32dp">
+
+			<com.google.android.material.textview.MaterialTextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Inicio"
+				android:textColor="@color/serenity_text"
+				android:textSize="28sp"
+				android:textStyle="bold"
+				android:layout_marginTop="16dp" />
+
+			<com.google.android.material.textview.MaterialTextView
+				android:id="@+id/txtFecha"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="@color/serenity_text"
+				android:textSize="14sp"
+				android:layout_marginTop="8dp" />
+
+		</LinearLayout>
+
+		<!-- Clases del Día -->
+		<com.google.android.material.card.MaterialCardView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:cardCornerRadius="20dp"
+			app:cardElevation="2dp"
+			app:strokeColor="@color/serenity_border"
+			app:strokeWidth="1dp"
+			android:layout_marginStart="32dp"
+			android:layout_marginEnd="32dp"
+			android:layout_marginBottom="16dp">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:padding="24dp">
+
+				<com.google.android.material.textview.MaterialTextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Clases de Hoy"
+					android:textColor="@color/serenity_text"
+					android:textSize="20sp"
+					android:textStyle="bold"
+					android:layout_marginBottom="16dp" />
+
+				<androidx.recyclerview.widget.RecyclerView
+					android:id="@+id/recyclerClasesHoy"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+				<com.google.android.material.textview.MaterialTextView
+					android:id="@+id/txtSinClases"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="No tienes clases programadas para hoy"
+					android:textColor="@color/serenity_text"
+					android:textSize="14sp"
+					android:gravity="center"
+					android:padding="16dp"
+					android:visibility="gone" />
+
+			</LinearLayout>
+
+		</com.google.android.material.card.MaterialCardView>
+
+		<!-- Actividades Pendientes -->
+		<com.google.android.material.card.MaterialCardView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:cardCornerRadius="20dp"
+			app:cardElevation="2dp"
+			app:strokeColor="@color/serenity_border"
+			app:strokeWidth="1dp"
+			android:layout_marginStart="32dp"
+			android:layout_marginEnd="32dp"
+			android:layout_marginBottom="16dp">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:padding="24dp">
+
+				<com.google.android.material.textview.MaterialTextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Actividades Pendientes"
+					android:textColor="@color/serenity_text"
+					android:textSize="20sp"
+					android:textStyle="bold"
+					android:layout_marginBottom="16dp" />
+
+				<androidx.recyclerview.widget.RecyclerView
+					android:id="@+id/recyclerActividadesPendientes"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+				<com.google.android.material.textview.MaterialTextView
+					android:id="@+id/txtSinActividades"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="No tienes actividades pendientes"
+					android:textColor="@color/serenity_text"
+					android:textSize="14sp"
+					android:gravity="center"
+					android:padding="16dp"
+					android:visibility="gone" />
+
+			</LinearLayout>
+
+		</com.google.android.material.card.MaterialCardView>
+
+		<!-- Últimas Calificaciones -->
+		<com.google.android.material.card.MaterialCardView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:cardCornerRadius="20dp"
+			app:cardElevation="2dp"
+			app:strokeColor="@color/serenity_border"
+			app:strokeWidth="1dp"
+			android:layout_marginStart="32dp"
+			android:layout_marginEnd="32dp"
+			android:layout_marginBottom="24dp">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:padding="24dp">
+
+				<com.google.android.material.textview.MaterialTextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Últimas Calificaciones"
+					android:textColor="@color/serenity_text"
+					android:textSize="20sp"
+					android:textStyle="bold"
+					android:layout_marginBottom="16dp" />
+
+				<androidx.recyclerview.widget.RecyclerView
+					android:id="@+id/recyclerCalificaciones"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+				<com.google.android.material.textview.MaterialTextView
+					android:id="@+id/txtSinCalificaciones"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="No hay calificaciones registradas"
+					android:textColor="@color/serenity_text"
+					android:textSize="14sp"
+					android:gravity="center"
+					android:padding="16dp"
+					android:visibility="gone" />
+
+			</LinearLayout>
+
+		</com.google.android.material.card.MaterialCardView>
+
+	</LinearLayout>
+
+</ScrollView>
+
+<!-- Bottom Navigation -->
+<com.google.android.material.bottomnavigation.BottomNavigationView
+	android:id="@+id/bottomNav"
+	android:layout_width="0dp"
+	android:layout_height="wrap_content"
+	android:background="@color/serenity_card"
+	app:itemIconTint="@drawable/bottom_nav_colors"
+	app:itemTextColor="@drawable/bottom_nav_colors"
+	app:menu="@menu/menu_bottom_nav"
+	app:layout_constraintBottom_toBottomOf="parent"
+	app:layout_constraintStart_toStartOf="parent"
+	app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

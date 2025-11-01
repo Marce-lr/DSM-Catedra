@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_margin="8dp"
+	app:cardCornerRadius="12dp"
+	app:cardElevation="2dp"
+	app:strokeColor="@color/serenity_border"
+	app:strokeWidth="1dp">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:padding="16dp">
+
+		<com.google.android.material.textview.MaterialTextView
+			android:id="@+id/txtNombre"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"
+			android:textSize="18sp"
+			android:textColor="@color/serenity_text" />
+
+		<com.google.android.material.textview.MaterialTextView
+			android:id="@+id/txtCodigo"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textSize="14sp"
+			android:textColor="@color/serenity_text"
+			android:layout_marginTop="4dp" />
+
+		<com.google.android.material.textview.MaterialTextView
+			android:id="@+id/txtProfesor"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textSize="14sp"
+			android:textColor="@color/serenity_text"
+			android:layout_marginTop="4dp" />
+
+		<com.google.android.material.textview.MaterialTextView
+			android:id="@+id/txtUbicacion"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textSize="14sp"
+			android:textColor="@color/serenity_text"
+			android:layout_marginTop="4dp" />
+
+		<com.google.android.material.textview.MaterialTextView
+			android:id="@+id/txtHorario"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textSize="14sp"
+			android:textColor="@color/serenity_text"
+			android:textStyle="italic"
+			android:layout_marginTop="4dp" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_marginTop="12dp"
+			android:gravity="end">
+
+			<com.google.android.material.button.MaterialButton
+				android:id="@+id/btnEdit"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:contentDescription="Editar"
+				app:icon="@android:drawable/ic_menu_edit"
+				app:iconTint="@android:color/white"
+				android:backgroundTint="@color/serenity_primary"
+				android:textColor="@android:color/white"
+				style="@style/Widget.Material3.Button.Icon"
+				app:cornerRadius="8dp" />
+
+			<com.google.android.material.button.MaterialButton
+				android:id="@+id/btnDelete"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:contentDescription="Eliminar"
+				app:icon="@android:drawable/ic_menu_delete"
+				app:iconTint="@android:color/white"
+				android:backgroundTint="#ff0000"
+				android:textColor="@android:color/white"
+				style="@style/Widget.Material3.Button.Icon"
+				app:cornerRadius="8dp"
+				android:layout_marginStart="8dp" />
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
+

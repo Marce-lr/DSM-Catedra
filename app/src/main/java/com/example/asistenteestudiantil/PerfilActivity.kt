@@ -42,13 +42,32 @@ class PerfilActivity : AppCompatActivity() {
 			selectedItemId = R.id.nav_perfil
 			setOnItemSelectedListener { item ->
 				when (item.itemId) {
+					R.id.nav_dashboard -> {
+						startActivity(Intent(this@PerfilActivity, DashboardActivity::class.java))
+						finish()
+						true
+					}
 					R.id.nav_perfil -> true
 					R.id.nav_actividades -> {
 						startActivity(Intent(this@PerfilActivity, ActividadesActivity::class.java))
 						finish()
 						true
 					}
-					R.id.nav_apuntes -> { startActivity(Intent(this@PerfilActivity, ApuntesActivity::class.java)); true }
+					R.id.nav_apuntes -> { 
+						startActivity(Intent(this@PerfilActivity, ApuntesActivity::class.java))
+						finish()
+						true 
+					}
+					R.id.nav_horarios -> {
+						startActivity(Intent(this@PerfilActivity, HorariosActivity::class.java))
+						finish()
+						true
+					}
+					R.id.nav_calendario -> {
+						startActivity(Intent(this@PerfilActivity, CalendarioActivity::class.java))
+						finish()
+						true
+					}
 					else -> false
 				}
 			}

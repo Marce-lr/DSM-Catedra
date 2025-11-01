@@ -6,8 +6,7 @@ data class Note(
 	val name: String = "",
 	val mimeType: String = "",
 	val sizeBytes: Long = 0L,
-	val storagePath: String = "",
-	val downloadUrl: String = "",
+	val localFilePath: String = "", // Ruta del archivo en almacenamiento local
 	val createdAt: Long = System.currentTimeMillis()
 )
 

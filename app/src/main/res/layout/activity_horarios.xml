@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="@color/serenity_background">
+
+	<!-- Header -->
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:gravity="center"
+		android:layout_marginTop="20dp"
+		android:layout_marginBottom="40dp"
+		android:paddingStart="32dp"
+		android:paddingEnd="32dp"
+		android:paddingTop="32dp">
+
+		<!-- Título -->
+		<com.google.android.material.textview.MaterialTextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Horarios y Materias"
+			android:textSize="28sp"
+			android:textStyle="bold"
+			android:textColor="@color/serenity_text"
+			android:layout_marginTop="16dp" />
+
+	</LinearLayout>
+
+	<!-- Tabs -->
+	<com.google.android.material.card.MaterialCardView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:cardCornerRadius="20dp"
+		app:cardElevation="2dp"
+		app:strokeColor="@color/serenity_border"
+		app:strokeWidth="1dp"
+		android:layout_marginStart="32dp"
+		android:layout_marginEnd="32dp"
+		android:layout_marginBottom="24dp">
+
+		<com.google.android.material.tabs.TabLayout
+			android:id="@+id/tabLayout"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:tabMode="fixed"
+			app:tabGravity="fill"
+			app:tabTextColor="@color/serenity_text"
+			app:tabSelectedTextColor="@color/serenity_primary"
+			app:tabIndicatorColor="@color/serenity_primary">
+
+			<com.google.android.material.tabs.TabItem
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Materias" />
+
+			<com.google.android.material.tabs.TabItem
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Horario Semanal" />
+
+		</com.google.android.material.tabs.TabLayout>
+
+	</com.google.android.material.card.MaterialCardView>
+
+	<!-- Tab 1: Lista de Materias -->
+	<com.google.android.material.card.MaterialCardView
+		android:id="@+id/cardMaterias"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		app:cardCornerRadius="20dp"
+		app:cardElevation="2dp"
+		app:strokeColor="@color/serenity_border"
+		app:strokeWidth="1dp"
+		android:layout_marginStart="32dp"
+		android:layout_marginEnd="32dp"
+		android:layout_marginBottom="24dp">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical"
+			android:padding="24dp">
+
+			<androidx.recyclerview.widget.RecyclerView
+				android:id="@+id/recyclerMaterias"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:clipToPadding="false" />
+
+		</LinearLayout>
+
+	</com.google.android.material.card.MaterialCardView>
+
+	<!-- Tab 2: Horario Semanal -->
+	<ScrollView
+		android:id="@+id/scrollHorario"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:visibility="gone">
+
+		<com.google.android.material.card.MaterialCardView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:cardCornerRadius="20dp"
+			app:cardElevation="2dp"
+			app:strokeColor="@color/serenity_border"
+			app:strokeWidth="1dp"
+			android:layout_marginStart="32dp"
+			android:layout_marginEnd="32dp"
+			android:layout_marginBottom="24dp">
+
+			<LinearLayout
+				android:id="@+id/containerHorario"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:padding="16dp" />
+
+		</com.google.android.material.card.MaterialCardView>
+
+	</ScrollView>
+
+	<!-- Botón agregar materia -->
+	<com.google.android.material.button.MaterialButton
+		android:id="@+id/fabAdd"
+		android:layout_width="match_parent"
+		android:layout_height="56dp"
+		android:text="Agregar Materia"
+		android:textSize="16sp"
+		android:textStyle="bold"
+		android:backgroundTint="@color/serenity_button"
+		android:textColor="@android:color/white"
+		app:icon="@android:drawable/ic_input_add"
+		app:iconGravity="textStart"
+		app:iconPadding="8dp"
+		app:cornerRadius="12dp"
+		android:layout_marginStart="32dp"
+		android:layout_marginEnd="32dp"
+		android:layout_marginBottom="16dp" />
+
+	<!-- Bottom Navigation -->
+	<com.google.android.material.bottomnavigation.BottomNavigationView
+		android:id="@+id/bottomNav"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/serenity_card"
+		app:itemIconTint="@drawable/bottom_nav_colors"
+		app:itemTextColor="@drawable/bottom_nav_colors"
+		app:menu="@menu/menu_bottom_nav" />
+
+</LinearLayout>
+

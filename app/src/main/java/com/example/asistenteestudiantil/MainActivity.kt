@@ -22,8 +22,8 @@ class MainActivity : AppCompatActivity() {
         val currentUser = auth.currentUser
         
         if (currentUser != null) {
-            // Usuario autenticado, ir a actividades
-            irAActividades()
+            // Usuario autenticado, ir al dashboard
+            irADashboard()
         } else {
             // Usuario no autenticado, ir al login
             irALogin()
@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity() {
         finish()
     }
     
-    private fun irAActividades() {
-        val intent = Intent(this, ActividadesActivity::class.java)
+    private fun irADashboard() {
+        val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
         finish()
     }
